@@ -39,6 +39,11 @@
 			    <artifactId>mongo-java-driver</artifactId>
 			    <version>3.6.0</version>
 			</dependency>
+			<dependency>
+			    <groupId>com.itextpdf</groupId>
+			    <artifactId>itextpdf</artifactId>
+			    <version>5.0.6</version>
+			</dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -51,6 +56,10 @@
 		    <groupId>org.mongodb</groupId>
 		    <artifactId>mongo-java-driver</artifactId>
 		</dependency>
+		<dependency>
+		    <groupId>com.itextpdf</groupId>
+		    <artifactId>itextpdf</artifactId>
+	    </dependency>
         <!-- uncomment this to get JSON support
         <dependency>
             <groupId>org.glassfish.jersey.media</groupId>
