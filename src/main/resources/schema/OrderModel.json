@@ -1,0 +1,35 @@
+{ 
+	"customerDetails" :{
+		"customerMail" : "suparnog13@gmail.com", 
+		"customerMobile" : "9051915545" ,
+		"customerAddress" : {
+			"pincode" : "700131",
+			"street" : "AJC Bose road",
+			"roomorflatno" : "82",
+			"nearestLandMark" : "Jagriti Shangha Club"
+			
+		}
+	}, 
+	"orderDetails" : {
+	"orderDate" : "13/12/2017 IST 14:20", 
+	"orderList": 
+	[
+				{
+					"product_id" : "POTS-001",
+					"item_count": "10"
+				},
+				{
+					"product_id" : "POTS-001",
+					"item_count": "10"
+				},
+				{
+					"product_id" : "POTS-001",
+					"item_count": "10"
+				},
+				{
+					"product_id" : "POTS-001",
+					"item_count": "10"
+				}
+	]
+	}
+}
