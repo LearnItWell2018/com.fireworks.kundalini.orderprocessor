@@ -3,6 +3,13 @@
 
     <modelVersion>4.0.0</modelVersion>
 
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.8.RELEASE</version>
+	</parent>
+
+
     <groupId>com.fireworks.kundalini</groupId>
     <artifactId>orderprocessor</artifactId>
     <packaging>war</packaging>
@@ -63,6 +70,11 @@
     </dependencyManagement>
 
     <dependencies>
+    	<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-web</artifactId>
+		    <version>1.5.8.RELEASE</version>
+		</dependency>
         <dependency>
             <groupId>org.glassfish.jersey.containers</groupId>
             <artifactId>jersey-container-servlet-core</artifactId>
