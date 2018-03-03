@@ -1,10 +1,5 @@
 package com.fireworks.kundalini.orderprocessor.pojo;
 
-import java.util.HashMap;
-import java.util.Map;
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -24,8 +19,6 @@ public class CustomerDetails {
     private String customerMobile;
     @JsonProperty("customerAddress")
     private CustomerAddress customerAddress;
-    @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
     @JsonProperty("customerMail")
     public String getCustomerMail() {
@@ -57,19 +50,9 @@ public class CustomerDetails {
         this.customerAddress = customerAddress;
     }
 
-    @JsonAnyGetter
-    public Map<String, Object> getAdditionalProperties() {
-        return this.additionalProperties;
-    }
-
-    @JsonAnySetter
-    public void setAdditionalProperty(String name, Object value) {
-        this.additionalProperties.put(name, value);
-    }
-
     @Override
     public String toString() {
-        return new ToStringBuilder(this).append("customerMail", customerMail).append("customerMobile", customerMobile).append("customerAddress", customerAddress).append("additionalProperties", additionalProperties).toString();
+        return new ToStringBuilder(this).append("customerMail", customerMail).append("customerMobile", customerMobile).append("customerAddress", customerAddress).toString();
     }
 
 }

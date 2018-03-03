@@ -1,9 +1,9 @@
-package com.fireworks.kundalini.orderprocessor.appinit;
+package com.fireworks.kundalini.orderprocessor.conf;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-import com.fireworks.kundalini.orderprocessor.conf.rest.RestConfiguration;
-import com.fireworks.kundalini.orderprocessor.conf.service.ServiceConfiguration;
+import com.fireworks.kundalini.orderprocessor.rest.conf.RestConfiguration;
+import com.fireworks.kundalini.orderprocessor.service.conf.ServiceConfiguration;
 
 public class AppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
@@ -19,7 +19,7 @@ public class AppInitializer extends AbstractAnnotationConfigDispatcherServletIni
 
     @Override
     protected String[] getServletMappings() {
-        return new String[]{"/rs/"};
+        return new String[]{"/"};
     }
 
 }
