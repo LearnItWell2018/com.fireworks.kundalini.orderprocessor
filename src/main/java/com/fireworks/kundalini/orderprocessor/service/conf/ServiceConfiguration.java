@@ -27,15 +27,20 @@ public class ServiceConfiguration {
 	Environment env;
 	
 	
-	private MongoCollection<Document> getMongoConnection() {
+	private MongoDatabase getMongoConnection() {
 		MongoClient mongo = new MongoClient(env.getProperty("mongo.host"), Integer.parseInt(env.getProperty("mongo.port")));
-		MongoDatabase db = mongo.getDatabase("order");
-		return db.getCollection("orders");
+		return mongo.getDatabase("kundalini");
 	}
 	
-	@Bean("mongoCollection")
-	public MongoCRUDOrder getMongoCRUD() {
-		return new MongoCRUDOrder(getMongoConnection());
+	@Bean("mongoCollectionOrder")
+	public MongoCRUDOrder getMongoCRUDOrder() {
+		return new MongoCRUDOrder(getMongoConnection().getCollection("orders"));
+
+	}
+	
+	@Bean("mongoCollectionItems")
+	public MongoCRUDOrder getMongoCRUDItems() {
+		return new MongoCRUDOrder(getMongoConnection().getCollection("items"));
 
 	}
 }

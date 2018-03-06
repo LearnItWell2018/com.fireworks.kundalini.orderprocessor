@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.fireworks.kundalini.orderprocessor.pojo.Order;
-import com.fireworks.kundalini.orderprocessor.service.IGetOfferDetailsService;
+import com.fireworks.kundalini.orderprocessor.service.IOfferDetailsService;
 
 @Path("order")
 @Component
@@ -20,19 +20,19 @@ public class OrderController {
 
 	
 	@Autowired
-	IGetOfferDetailsService getOfferDetailsService;
+	IOfferDetailsService offerDetailsService;
 	
 	@GET
 	@Path("{orderId}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Order getOfferByID(@PathParam("orderId") String orderId) {
-		return getOfferDetailsService.fetchOrder(orderId);
+		return offerDetailsService.fetchOrder(orderId);
 	}
 	
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Order insertOrder(Order order) {
-		return getOfferDetailsService.saveOrder(order);
+		return offerDetailsService.saveOrder(order);
 	}
 }
