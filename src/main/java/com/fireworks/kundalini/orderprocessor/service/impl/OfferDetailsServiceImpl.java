@@ -7,10 +7,10 @@ import org.springframework.stereotype.Service;
 
 import com.fireworks.kundalini.orderprocessor.db.crud.CustomerOrderRepository;
 import com.fireworks.kundalini.orderprocessor.pojo.customerorder.CustomerOrder;
-import com.fireworks.kundalini.orderprocessor.service.IOfferDetailsService;
+import com.fireworks.kundalini.orderprocessor.service.IOrderDetailsService;
 
 @Service
-public class OfferDetailsServiceImpl implements IOfferDetailsService {
+public class OfferDetailsServiceImpl implements IOrderDetailsService {
 
 	
 	@Autowired

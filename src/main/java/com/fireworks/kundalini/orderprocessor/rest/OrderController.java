@@ -14,7 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.fireworks.kundalini.orderprocessor.pojo.customerorder.CustomerOrder;
-import com.fireworks.kundalini.orderprocessor.service.IOfferDetailsService;
+import com.fireworks.kundalini.orderprocessor.service.IOrderDetailsService;
 
 @Path("order")
 @Component
@@ -22,7 +22,7 @@ public class OrderController {
 
 	
 	@Autowired
-	IOfferDetailsService offerDetailsService;
+	IOrderDetailsService offerDetailsService;
 	
 	@GET
 	@Path("{customerMailId}")
