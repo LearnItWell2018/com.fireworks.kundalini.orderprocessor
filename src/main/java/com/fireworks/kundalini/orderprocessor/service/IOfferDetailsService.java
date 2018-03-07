@@ -1,8 +1,9 @@
 package com.fireworks.kundalini.orderprocessor.service;
 
 import com.fireworks.kundalini.orderprocessor.pojo.Order;
+import com.fireworks.kundalini.orderprocessor.pojo.customerorder.CustomerOrder;
 
 public interface IOfferDetailsService {
-	public Order saveOrder(Order order);
-	public Order fetchOrder(String objectId);
+	public CustomerOrder saveOrder(CustomerOrder order);
+	/*public Order fetchOrder(String objectId);*/
 }
