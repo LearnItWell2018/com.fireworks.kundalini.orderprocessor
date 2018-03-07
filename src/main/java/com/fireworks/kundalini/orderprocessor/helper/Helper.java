@@ -9,16 +9,16 @@ import com.fireworks.kundalini.orderprocessor.pojo.Order;
 
 public class Helper {
 
-	public static String provideJSON4POJO(Order order) {
+	public static String provideJSON4POJO(Object object) {
 		ObjectMapper mapper = new ObjectMapper();
 		try {
-			return mapper.writerWithDefaultPrettyPrinter().writeValueAsString(order);
+			return mapper.writerWithDefaultPrettyPrinter().writeValueAsString(object);
 		} catch (IOException e) {
 			return Error.ERR01;
 		}
 	}
 
-	public static Order providePOJO4JSON(String json) {
+	public static Order providePOJO4JSON(String json, Class classType) {
 		ObjectMapper mapper = new ObjectMapper();
 		try {
 			return mapper.readValue(json, Order.class);

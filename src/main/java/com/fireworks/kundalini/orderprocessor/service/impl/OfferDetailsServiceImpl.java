@@ -23,7 +23,7 @@ public class OfferDetailsServiceImpl implements IOfferDetailsService {
 
 	@Override
 	public Order fetchOrder(String objectId) {
-		Order order = Helper.providePOJO4JSON(mongoCollectionOrder.read(objectId));
+		Order order = Helper.providePOJO4JSON(mongoCollectionOrder.read(objectId), Order.class);
 		order.setOrderId(objectId);
 		return order;
 	}

@@ -7,12 +7,16 @@ import com.fireworks.kundalini.orderprocessor.service.IItemsDetailsService;
 
 @Service
 public class ItemsDetailsServiceImpl implements IItemsDetailsService{
-
-	
 	
 	@Override
 	public KundaliniItems getItems() {
 		return null;
+	}
+
+	@Override
+	public void setItems(KundaliniItems items) {
+		
+		
 	}
 
 }

@@ -12,20 +12,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.fireworks.kundalini.orderprocessor.pojo.items.KundaliniItems;
+import com.fireworks.kundalini.orderprocessor.service.IItemsDetailsService;
 
 @Path("items")
 @Component
 public class ItemController {
 	
-	
+	@Autowired
+	IItemsDetailsService itemsDetailsService;
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public KundaliniItems getItems() {
-		return new KundaliniItems();
+		return itemsDetailsService.getItems();
 	}
 	
-	
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
+	public void setItems(KundaliniItems items) {
+		itemsDetailsService.setItems(items);
+	}
 	
 	
 }
