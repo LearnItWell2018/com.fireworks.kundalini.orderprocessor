@@ -1,9 +1,10 @@
 package com.fireworks.kundalini.orderprocessor.service;
 
-import com.fireworks.kundalini.orderprocessor.pojo.Order;
+import java.util.List;
+
 import com.fireworks.kundalini.orderprocessor.pojo.customerorder.CustomerOrder;
 
 public interface IOfferDetailsService {
 	public CustomerOrder saveOrder(CustomerOrder order);
-	/*public Order fetchOrder(String objectId);*/
+	public List<CustomerOrder> fetchOrderForCustomer(String customerMail);
 }

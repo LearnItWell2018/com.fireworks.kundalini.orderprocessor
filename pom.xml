@@ -19,7 +19,7 @@
 	</properties>
 
 	<build>
-		<finalName>orderprocessor</finalName>
+		<finalName>kundalini</finalName>
 		<pluginManagement>
 			<plugins>
 				<plugin>

@@ -1,5 +1,7 @@
 package com.fireworks.kundalini.orderprocessor.rest;
 
+import java.util.List;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -11,7 +13,6 @@ import javax.ws.rs.core.MediaType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.fireworks.kundalini.orderprocessor.pojo.Order;
 import com.fireworks.kundalini.orderprocessor.pojo.customerorder.CustomerOrder;
 import com.fireworks.kundalini.orderprocessor.service.IOfferDetailsService;
 
@@ -23,12 +24,12 @@ public class OrderController {
 	@Autowired
 	IOfferDetailsService offerDetailsService;
 	
-	/*@GET
-	@Path("{orderId}")
+	@GET
+	@Path("{customerMailId}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Order getOfferByID(@PathParam("orderId") String orderId) {
-		return offerDetailsService.fetchOrder(orderId);
-	}*/
+	public List<CustomerOrder> getOfferByID(@PathParam("customerMailId") String customerMailId) {
+		return offerDetailsService.fetchOrderForCustomer(customerMailId);
+	}
 	
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
