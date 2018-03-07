@@ -37,8 +37,6 @@ public class ItemTypeList {
     private String itemStock;
     @JsonProperty("itemActive")
     private String itemActive;
-    @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
     @JsonProperty("productId")
     public String getProductId() {
@@ -110,19 +108,9 @@ public class ItemTypeList {
         this.itemActive = itemActive;
     }
 
-    @JsonAnyGetter
-    public Map<String, Object> getAdditionalProperties() {
-        return this.additionalProperties;
-    }
-
-    @JsonAnySetter
-    public void setAdditionalProperty(String name, Object value) {
-        this.additionalProperties.put(name, value);
-    }
-
     @Override
     public String toString() {
-        return new ToStringBuilder(this).append("productId", productId).append("productImgPath", productImgPath).append("brand", brand).append("itemName", itemName).append("itemPrice", itemPrice).append("itemStock", itemStock).append("itemActive", itemActive).append("additionalProperties", additionalProperties).toString();
+        return new ToStringBuilder(this).append("productId", productId).append("productImgPath", productImgPath).append("brand", brand).append("itemName", itemName).append("itemPrice", itemPrice).append("itemStock", itemStock).append("itemActive", itemActive).toString();
     }
 
 }

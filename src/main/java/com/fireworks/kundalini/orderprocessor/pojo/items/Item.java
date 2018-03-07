@@ -23,8 +23,6 @@ public class Item {
     private String itemName;
     @JsonProperty("itemTypeList")
     private List<ItemTypeList> itemTypeList = null;
-    @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
     @JsonProperty("itemName")
     public String getItemName() {
@@ -46,19 +44,9 @@ public class Item {
         this.itemTypeList = itemTypeList;
     }
 
-    @JsonAnyGetter
-    public Map<String, Object> getAdditionalProperties() {
-        return this.additionalProperties;
-    }
-
-    @JsonAnySetter
-    public void setAdditionalProperty(String name, Object value) {
-        this.additionalProperties.put(name, value);
-    }
-
     @Override
     public String toString() {
-        return new ToStringBuilder(this).append("itemName", itemName).append("itemTypeList", itemTypeList).append("additionalProperties", additionalProperties).toString();
+        return new ToStringBuilder(this).append("itemName", itemName).append("itemTypeList", itemTypeList).toString();
     }
 
 }

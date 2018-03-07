@@ -20,8 +20,6 @@ public class KundaliniItems {
 
     @JsonProperty("Items")
     private List<Item> items = null;
-    @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
     @JsonProperty("Items")
     public List<Item> getItems() {
@@ -33,19 +31,9 @@ public class KundaliniItems {
         this.items = items;
     }
 
-    @JsonAnyGetter
-    public Map<String, Object> getAdditionalProperties() {
-        return this.additionalProperties;
-    }
-
-    @JsonAnySetter
-    public void setAdditionalProperty(String name, Object value) {
-        this.additionalProperties.put(name, value);
-    }
-
     @Override
     public String toString() {
-        return new ToStringBuilder(this).append("items", items).append("additionalProperties", additionalProperties).toString();
+        return new ToStringBuilder(this).append("items", items).toString();
     }
 
 }
