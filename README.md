@@ -1,16 +1,19 @@
 **GET:**
 http://localhost:8080/kundalini/rs/itemCategories/
 
-<p>{ "items" : 
+```json
+{ "items" : 
 	[ 
 		{"itemName" : "POTS"}, {"itemName" : "BOMBS"}, {"itemName" : "CHARKAS"}
 	]
-}</p>
+}
+```
 
 **GET:**
 http://localhost:8080/kundalini/rs/items/
 		
-<p>{ 	"itemVersion" : "1",
+```json
+{ 	"itemVersion" : "1",
 	"itemStatus" : "active",
 	"items" : {
 	"itemCreator" : "Suparna Ghosh",
@@ -97,12 +100,14 @@ http://localhost:8080/kundalini/rs/items/
 			}
 		]
 	}
-}</p>
+}
+```
 
 **GET:**
 http://localhost:8080/kundalini/rs/items/POTS/
 		
-<p>{ "itemTypeList": 
+```json
+{ "itemTypeList": 
 	[
 		{
 			"productId" : "POTS-001",
@@ -141,12 +146,14 @@ http://localhost:8080/kundalini/rs/items/POTS/
 			"itemActive": "true"
 		}
 	]
-}</p>
+}
+```
 
 **GET:**
 http://localhost:8080/kundalini/rs/items/POTS/POTS-001
 
-<p>{
+```json
+{
 	"productId" : "POTS-001",
 	"productImgPath" : "/img/img.jpg",
 	"brand" : "SIVKASHI",
@@ -154,12 +161,14 @@ http://localhost:8080/kundalini/rs/items/POTS/POTS-001
 	"itemPrice": "sds",
 	"itemStock": "sds",
 	"itemActive": "true"
-}</p>
+}
+```
 
 **POST:**
 http://localhost:8080/kundalini/rs/customer/
 
-<p>{
+```json
+{
   "customerMail": "suparnog13@gmail.com",
   "customerMobile": "9163848888",
   "customerDetails": 
@@ -183,12 +192,14 @@ http://localhost:8080/kundalini/rs/customer/
 		}
 	]
   }
-}</p>
+}
+```
 
 **POST:**
 http://localhost:8080/kundalini/rs/order/
 
-<p>{
+```json
+{
   "customerMail": "suparnog13@gmail.com" ,
   "customerMobile": "9163848888",
   "orderDetails": {
@@ -221,4 +232,5 @@ http://localhost:8080/kundalini/rs/order/
       }
     ]
   }
-}</p>
+}
+```
