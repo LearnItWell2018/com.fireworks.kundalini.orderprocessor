@@ -1,4 +1,4 @@
-<div style="background-color:green">GET:</div>
+**GET:**
 http://localhost:8080/kundalini/rs/itemCategories/
 { "items" : 
 	[ 
@@ -6,7 +6,7 @@ http://localhost:8080/kundalini/rs/itemCategories/
 	]
 }
 
-<div style="background-color:green">GET:</div>
+**GET:**
 http://localhost:8080/kundalini/rs/items/
 		
 { 	"itemVersion" : "1",
@@ -98,7 +98,7 @@ http://localhost:8080/kundalini/rs/items/
 	}
 }
 
-<div style="background-color:green">GET:</div>
+**GET:**
 http://localhost:8080/kundalini/rs/items/POTS/
 		
 { "itemTypeList": 
@@ -142,7 +142,7 @@ http://localhost:8080/kundalini/rs/items/POTS/
 	]
 }
 
-<div style="background-color:green">GET:</div>
+**GET:**
 http://localhost:8080/kundalini/rs/items/POTS/POTS-001
 
 {
@@ -155,7 +155,8 @@ http://localhost:8080/kundalini/rs/items/POTS/POTS-001
 	"itemActive": "true"
 }
 
-POST : http://localhost:8080/kundalini/rs/customer/
+**POST:**
+http://localhost:8080/kundalini/rs/customer/
 
 {
   "customerMail": "suparnog13@gmail.com",
@@ -183,9 +184,10 @@ POST : http://localhost:8080/kundalini/rs/customer/
   }
 }
 
-POST : http://localhost:8080/kundalini/rs/order/
+**POST:**
+http://localhost:8080/kundalini/rs/order/
 {
-  "customerMail": "suparnog13@gmail.com",
+  "customerMail": "suparnog13@gmail.com" ,
   "customerMobile": "9163848888",
   "orderDetails": {
 	"orderTotal": "1200.00",
