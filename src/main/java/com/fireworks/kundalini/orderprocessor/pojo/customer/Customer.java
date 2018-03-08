@@ -1,24 +1,28 @@
-package com.fireworks.kundalini.orderprocessor.pojo;
+
+package com.fireworks.kundalini.orderprocessor.pojo.customer;
+
+import org.apache.commons.lang.builder.ToStringBuilder;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import org.apache.commons.lang3.builder.ToStringBuilder;
 
+@Document(collection = "customer")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
     "customerMail",
     "customerMobile",
-    "customerAddress"
+    "customerDetails"
 })
-public class CustomerDetails {
+public class Customer {
 
     @JsonProperty("customerMail")
     private String customerMail;
     @JsonProperty("customerMobile")
     private String customerMobile;
-    @JsonProperty("customerAddress")
-    private CustomerAddress customerAddress;
+    @JsonProperty("customerDetails")
+    private CustomerDetails customerDetails;
 
     @JsonProperty("customerMail")
     public String getCustomerMail() {
@@ -40,19 +44,19 @@ public class CustomerDetails {
         this.customerMobile = customerMobile;
     }
 
-    @JsonProperty("customerAddress")
-    public CustomerAddress getCustomerAddress() {
-        return customerAddress;
+    @JsonProperty("customerDetails")
+    public CustomerDetails getCustomerDetails() {
+        return customerDetails;
     }
 
-    @JsonProperty("customerAddress")
-    public void setCustomerAddress(CustomerAddress customerAddress) {
-        this.customerAddress = customerAddress;
+    @JsonProperty("customerDetails")
+    public void setCustomerDetails(CustomerDetails customerDetails) {
+        this.customerDetails = customerDetails;
     }
 
     @Override
     public String toString() {
-        return new ToStringBuilder(this).append("customerMail", customerMail).append("customerMobile", customerMobile).append("customerAddress", customerAddress).toString();
+        return new ToStringBuilder(this).append("customerMail", customerMail).append("customerMobile", customerMobile).append("customerDetails", customerDetails).toString();
     }
 
 }

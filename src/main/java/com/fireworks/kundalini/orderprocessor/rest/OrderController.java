@@ -22,19 +22,19 @@ public class OrderController {
 
 	
 	@Autowired
-	IOrderDetailsService offerDetailsService;
+	IOrderDetailsService orderDetailsService;
 	
 	@GET
 	@Path("{customerMailId}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<CustomerOrder> getOfferByID(@PathParam("customerMailId") String customerMailId) {
-		return offerDetailsService.fetchOrderForCustomer(customerMailId);
+		return orderDetailsService.fetchOrderForCustomer(customerMailId);
 	}
 	
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public CustomerOrder insertOrder(CustomerOrder order) {
-		return offerDetailsService.saveOrder(order);
+		return orderDetailsService.saveOrder(order);
 	}
 }

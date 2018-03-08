@@ -9,4 +9,9 @@ import com.sun.jersey.spi.spring.container.servlet.SpringServlet;
 		@WebInitParam(name = "com.sun.jersey.api.json.POJOMappingFeature", value = "true")})
 public class JerseyServlet extends SpringServlet {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 }

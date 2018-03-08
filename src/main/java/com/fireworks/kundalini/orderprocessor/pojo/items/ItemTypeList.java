@@ -1,45 +1,57 @@
 
 package com.fireworks.kundalini.orderprocessor.pojo.items;
 
-import java.util.HashMap;
-import java.util.Map;
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.apache.commons.lang.builder.ToStringBuilder;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import org.apache.commons.lang.builder.ToStringBuilder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-    "product_id",
+    "productId",
+    "productImgPath",
     "brand",
-    "item_name",
-    "item_price",
-    "item_stock"
+    "itemName",
+    "itemPrice",
+    "itemStock",
+    "itemActive"
 })
 public class ItemTypeList {
 
-    @JsonProperty("product_id")
+    @JsonProperty("productId")
     private String productId;
+    @JsonProperty("productImgPath")
+    private String productImgPath;
     @JsonProperty("brand")
     private String brand;
-    @JsonProperty("item_name")
+    @JsonProperty("itemName")
     private String itemName;
-    @JsonProperty("item_price")
+    @JsonProperty("itemPrice")
     private String itemPrice;
-    @JsonProperty("item_stock")
+    @JsonProperty("itemStock")
     private String itemStock;
+    @JsonProperty("itemActive")
+    private String itemActive;
 
-    @JsonProperty("product_id")
+    @JsonProperty("productId")
     public String getProductId() {
         return productId;
     }
 
-    @JsonProperty("product_id")
+    @JsonProperty("productId")
     public void setProductId(String productId) {
         this.productId = productId;
+    }
+
+    @JsonProperty("productImgPath")
+    public String getProductImgPath() {
+        return productImgPath;
+    }
+
+    @JsonProperty("productImgPath")
+    public void setProductImgPath(String productImgPath) {
+        this.productImgPath = productImgPath;
     }
 
     @JsonProperty("brand")
@@ -52,39 +64,49 @@ public class ItemTypeList {
         this.brand = brand;
     }
 
-    @JsonProperty("item_name")
+    @JsonProperty("itemName")
     public String getItemName() {
         return itemName;
     }
 
-    @JsonProperty("item_name")
+    @JsonProperty("itemName")
     public void setItemName(String itemName) {
         this.itemName = itemName;
     }
 
-    @JsonProperty("item_price")
+    @JsonProperty("itemPrice")
     public String getItemPrice() {
         return itemPrice;
     }
 
-    @JsonProperty("item_price")
+    @JsonProperty("itemPrice")
     public void setItemPrice(String itemPrice) {
         this.itemPrice = itemPrice;
     }
 
-    @JsonProperty("item_stock")
+    @JsonProperty("itemStock")
     public String getItemStock() {
         return itemStock;
     }
 
-    @JsonProperty("item_stock")
+    @JsonProperty("itemStock")
     public void setItemStock(String itemStock) {
         this.itemStock = itemStock;
     }
 
+    @JsonProperty("itemActive")
+    public String getItemActive() {
+        return itemActive;
+    }
+
+    @JsonProperty("itemActive")
+    public void setItemActive(String itemActive) {
+        this.itemActive = itemActive;
+    }
+
     @Override
     public String toString() {
-        return new ToStringBuilder(this).append("productId", productId).append("brand", brand).append("itemName", itemName).append("itemPrice", itemPrice).append("itemStock", itemStock).toString();
+        return new ToStringBuilder(this).append("productId", productId).append("productImgPath", productImgPath).append("brand", brand).append("itemName", itemName).append("itemPrice", itemPrice).append("itemStock", itemStock).append("itemActive", itemActive).toString();
     }
 
 }
