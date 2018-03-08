@@ -1,4 +1,4 @@
-GET : http://localhost:8080/kundalini/rs/itemCategories/
+<div style="background-color: green">GET</div> : http://localhost:8080/kundalini/rs/itemCategories/
 { "items" : 
 	[ 
 		{"itemName" : "POTS"}, {"itemName" : "BOMBS"}, {"itemName" : "CHARKAS"}
