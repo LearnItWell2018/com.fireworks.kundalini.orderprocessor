@@ -1,11 +1,13 @@
-<div style="background-color: green">GET</div> : http://localhost:8080/kundalini/rs/itemCategories/
+<div style="background-color:green">GET:</div>
+http://localhost:8080/kundalini/rs/itemCategories/
 { "items" : 
 	[ 
 		{"itemName" : "POTS"}, {"itemName" : "BOMBS"}, {"itemName" : "CHARKAS"}
 	]
 }
 
-GET : http://localhost:8080/kundalini/rs/items/
+<div style="background-color:green">GET:</div>
+http://localhost:8080/kundalini/rs/items/
 		
 { 	"itemVersion" : "1",
 	"itemStatus" : "active",
@@ -96,7 +98,8 @@ GET : http://localhost:8080/kundalini/rs/items/
 	}
 }
 
-GET : http://localhost:8080/kundalini/rs/items/POTS/
+<div style="background-color:green">GET:</div>
+http://localhost:8080/kundalini/rs/items/POTS/
 		
 { "itemTypeList": 
 	[
@@ -139,7 +142,8 @@ GET : http://localhost:8080/kundalini/rs/items/POTS/
 	]
 }
 
-GET : http://localhost:8080/kundalini/rs/items/POTS/POTS-001
+<div style="background-color:green">GET:</div>
+http://localhost:8080/kundalini/rs/items/POTS/POTS-001
 
 {
 	"productId" : "POTS-001",
