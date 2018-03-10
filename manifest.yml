@@ -1,0 +1,7 @@
+---
+applications:
+- name: kundalini
+  path: target/kundalini.war
+  host: kundalini
+  memory: 512m
+  instances: 1

@@ -11,7 +11,7 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 
 import com.mongodb.Mongo;
 import com.mongodb.MongoClient;
-import com.mongodb.ServerAddress;
+import com.mongodb.MongoClientURI;
 
 @EnableMongoRepositories("com.fireworks.kundalini.orderprocessor.db")
 @Configuration 
@@ -24,11 +24,12 @@ public class ServiceConfiguration extends AbstractMongoConfiguration {
 	
 	@Override
 	protected String getDatabaseName() {
-		return "kundalini";
+		return env.getProperty("mongo.db");
 	}
 
 	@Override
 	public Mongo mongo() throws Exception {
-		return new MongoClient(new ServerAddress("localhost", 27017));
+		MongoClientURI uri = new MongoClientURI(env.getProperty("mongo.uri"));
+		return new MongoClient(uri);
 	}
 }

@@ -1,6 +1,7 @@
 package com.fireworks.kundalini.orderprocessor.pdf;
 
 import java.io.FileOutputStream;
+import java.util.ArrayList;
 
 import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Document;
@@ -11,6 +12,9 @@ import com.itextpdf.text.ListItem;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.RomanList;
 import com.itextpdf.text.ZapfDingbatsList;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPRow;
+import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
 public class OrderBill {
@@ -77,6 +81,22 @@ public class OrderBill {
 		    nestedList.add(sublist);
 		 
 		    document.add(nestedList);
+		    
+		    
+		    
+		    
+		    PdfPTable table = new PdfPTable(3);
+		    PdfPCell pdfcell1 = new PdfPCell(new Paragraph("element1"));
+		    PdfPCell pdfcell2 = new PdfPCell(new Paragraph("element2"));
+		    PdfPCell pdfcell3 = new PdfPCell(new Paragraph("element3"));
+		    PdfPCell[] list = {pdfcell1, pdfcell2, pdfcell3};
+		    PdfPRow row1 = new PdfPRow(list);
+		    
+		    ArrayList<PdfPRow> pdfRows = table.getRows();
+		    pdfRows.add(row1);
+		    
+		    
+		    document.add(table);
 		 
 		    document.close();
 		    writer.close();
