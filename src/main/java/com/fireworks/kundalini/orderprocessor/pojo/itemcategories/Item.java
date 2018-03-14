@@ -9,13 +9,41 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-    "itemName"
+    "itemName",
+    "itemIMGPath",
+    "itemURL"
 })
 public class Item {
 
     @JsonProperty("itemName")
     private String itemName;
+    
+    @JsonProperty("itemIMGPath")
+    private String itemIMGPath;
+    
+    @JsonProperty("itemURL")
+    private String itemURL;
+    
+    @JsonProperty("itemURL")
+    public String getItemURL() {
+		return itemURL;
+	}
 
+    @JsonProperty("itemURL")
+	public void setItemURL(String itemURL) {
+		this.itemURL = itemURL;
+	}
+
+	@JsonProperty("itemIMGPath")
+    public String getItemIMGPath() {
+		return itemIMGPath;
+	}
+    
+    @JsonProperty("itemIMGPath")
+	public void setItemIMGPath(String itemIMGPath) {
+		this.itemIMGPath = itemIMGPath;
+	}
+    
     @JsonProperty("itemName")
     public String getItemName() {
         return itemName;
@@ -28,7 +56,7 @@ public class Item {
 
     @Override
     public String toString() {
-        return new ToStringBuilder(this).append("itemName", itemName).toString();
+        return new ToStringBuilder(this).append("itemName", itemName).append("itemIMGPath", itemIMGPath).append("itemURL", itemURL).toString();
     }
 
 }

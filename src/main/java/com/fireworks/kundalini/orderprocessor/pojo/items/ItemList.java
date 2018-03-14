@@ -10,13 +10,27 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
     "itemName",
+    "itemIMGPath",
     "itemTypeList"
 })
 public class ItemList {
 
     @JsonProperty("itemName")
     private String itemName;
-    @JsonProperty("itemTypeList")
+    @JsonProperty("itemIMGPath")
+    private String itemIMGPath;
+    
+    @JsonProperty("itemIMGPath")
+    public String getItemIMGPath() {
+		return itemIMGPath;
+	}
+    
+    @JsonProperty("itemIMGPath")
+	public void setItemIMGPath(String itemIMGPath) {
+		this.itemIMGPath = itemIMGPath;
+	}
+
+	@JsonProperty("itemTypeList")
     private List<ItemTypeList> itemTypeList = null;
 
     @JsonProperty("itemName")
@@ -41,7 +55,7 @@ public class ItemList {
 
     @Override
     public String toString() {
-        return new ToStringBuilder(this).append("itemName", itemName).append("itemTypeList", itemTypeList).toString();
+        return new ToStringBuilder(this).append("itemName", itemName).append("itemIMGPath", itemIMGPath).append("itemTypeList", itemTypeList).toString();
     }
 
 }

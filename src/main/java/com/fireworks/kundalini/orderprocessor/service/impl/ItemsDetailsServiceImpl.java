@@ -60,6 +60,8 @@ public class ItemsDetailsServiceImpl implements IItemsDetailsService {
 		for (ItemList itemList : kundaliniItems.getItems().getItemList()) {
 			item = new Item();
 			item.setItemName(itemList.getItemName());
+			item.setItemIMGPath(itemList.getItemIMGPath());
+			item.setItemURL(itemList.getItemName());
 			items.add(item);
 		}
 		itemCategories.setItems(items);
