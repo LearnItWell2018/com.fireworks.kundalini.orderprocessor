@@ -2,11 +2,7 @@
 http://localhost:8080/kundalini/rs/itemCategories/
 
 ```json
-{ "items" : 
-	[ 
-		{"itemName" : "POTS"}, {"itemName" : "BOMBS"}, {"itemName" : "CHARKAS"}
-	]
-}
+{"items":[{"itemName":"POT","itemIMGPath":"assets/menu-icons/pot_icon.svg","itemURL":"POT"},{"itemName":"SHELL","itemIMGPath":"assets/menu-icons/shell_icon.svg","itemURL":"SHELL"},{"itemName":"TORCH","itemIMGPath":"assets/menu-icons/torch_icon.svg","itemURL":"TORCH"},{"itemName":"SPARKLER","itemIMGPath":"assets/menu-icons/sparkler_icon.svg","itemURL":"SPARKLER"},{"itemName":"CAP_SERPENT","itemIMGPath":"assets/menu-icons/cap_serpent_icon","itemURL":"CAP_SERPENT"},{"itemName":"FOUNTAIN","itemIMGPath":"assets/menu-icons/fountain_icon.svg","itemURL":"FOUNTAIN"},{"itemName":"CHARKI","itemIMGPath":"assets/menu-icons/charki_icon.svg","itemURL":"CHARKI"}]}
 ```
 
 **GET:**
@@ -18,7 +14,7 @@ http://localhost:8080/kundalini/rs/items/
 	"items" : {
 	"itemCreator" : "Suparna Ghosh",
 	"itemList" :[ 
-		 	{ "itemName" : "POTS", "itemTypeList": 
+		 	{ "itemName" : "POT", "itemIMGPath" : "assets/menu-icons/pot_icon.svg", "itemTypeList": 
 				[
 					{
 						"productId" : "POTS-001",
@@ -58,7 +54,207 @@ http://localhost:8080/kundalini/rs/items/
 					}
 				]
 			},
-			{ "itemName" : "BOMBS", "itemTypeList": 
+			{ "itemName" : "SHELL", "itemIMGPath" : "assets/menu-icons/shell_icon.svg", "itemTypeList": 
+				[
+					{
+						"productId" : "POTS-001",
+						"productImgPath" : "/img/img.jpg",
+						"brand" : "SIVKASHI",
+						"itemName": "Red POTS",
+						"itemPrice": "sds",
+						"itemStock": "sds",
+						"itemActive": "true"
+					},
+					{
+						"productId" : "POTS-002",
+						"productImgPath" : "/img/img.jpg",
+						"brand" : "SIVKASHI",
+						"itemName": "Red POTS",
+						"itemPrice": "sds",
+						"itemStock": "sds",
+						"itemActive": "true"
+					},
+					{
+						"productId" : "POTS-003",
+						"productImgPath" : "/img/img.jpg",
+						"brand" : "SIVKASHI",
+						"itemName": "Red POTS",
+						"itemPrice": "sds",
+						"itemStock": "sds",
+						"itemActive": "true"
+					},
+					{
+						"productId" : "POTS-004",
+						"productImgPath" : "/img/img.jpg",
+						"brand" : "SIVKASHI",
+						"itemName": "Red POTS",
+						"itemPrice": "sds",
+						"itemStock": "sds",
+						"itemActive": "true"
+					}
+				]
+			},
+			{ "itemName" : "TORCH", "itemIMGPath" : "assets/menu-icons/torch_icon.svg", "itemTypeList": 
+				[
+					{
+						"productId" : "POTS-001",
+						"productImgPath" : "/img/img.jpg",
+						"brand" : "SIVKASHI",
+						"itemName": "Red POTS",
+						"itemPrice": "sds",
+						"itemStock": "sds",
+						"itemActive": "true"
+					},
+					{
+						"productId" : "POTS-002",
+						"productImgPath" : "/img/img.jpg",
+						"brand" : "SIVKASHI",
+						"itemName": "Red POTS",
+						"itemPrice": "sds",
+						"itemStock": "sds",
+						"itemActive": "true"
+					},
+					{
+						"productId" : "POTS-003",
+						"productImgPath" : "/img/img.jpg",
+						"brand" : "SIVKASHI",
+						"itemName": "Red POTS",
+						"itemPrice": "sds",
+						"itemStock": "sds",
+						"itemActive": "true"
+					},
+					{
+						"productId" : "POTS-004",
+						"productImgPath" : "/img/img.jpg",
+						"brand" : "SIVKASHI",
+						"itemName": "Red POTS",
+						"itemPrice": "sds",
+						"itemStock": "sds",
+						"itemActive": "true"
+					}
+				]
+			},
+			{ "itemName" : "SPARKLER", "itemIMGPath" : "assets/menu-icons/sparkler_icon.svg", "itemTypeList": 
+				[
+					{
+						"productId" : "POTS-001",
+						"productImgPath" : "/img/img.jpg",
+						"brand" : "SIVKASHI",
+						"itemName": "Red POTS",
+						"itemPrice": "sds",
+						"itemStock": "sds",
+						"itemActive": "true"
+					},
+					{
+						"productId" : "POTS-002",
+						"productImgPath" : "/img/img.jpg",
+						"brand" : "SIVKASHI",
+						"itemName": "Red POTS",
+						"itemPrice": "sds",
+						"itemStock": "sds",
+						"itemActive": "true"
+					},
+					{
+						"productId" : "POTS-003",
+						"productImgPath" : "/img/img.jpg",
+						"brand" : "SIVKASHI",
+						"itemName": "Red POTS",
+						"itemPrice": "sds",
+						"itemStock": "sds",
+						"itemActive": "true"
+					},
+					{
+						"productId" : "POTS-004",
+						"productImgPath" : "/img/img.jpg",
+						"brand" : "SIVKASHI",
+						"itemName": "Red POTS",
+						"itemPrice": "sds",
+						"itemStock": "sds",
+						"itemActive": "true"
+					}
+				]
+			},
+			{ "itemName" : "CAP_SERPENT", "itemIMGPath" : "assets/menu-icons/cap_serpent_icon", "itemTypeList": 
+				[
+					{
+						"productId" : "POTS-001",
+						"productImgPath" : "/img/img.jpg",
+						"brand" : "SIVKASHI",
+						"itemName": "Red POTS",
+						"itemPrice": "sds",
+						"itemStock": "sds",
+						"itemActive": "true"
+					},
+					{
+						"productId" : "POTS-002",
+						"productImgPath" : "/img/img.jpg",
+						"brand" : "SIVKASHI",
+						"itemName": "Red POTS",
+						"itemPrice": "sds",
+						"itemStock": "sds",
+						"itemActive": "true"
+					},
+					{
+						"productId" : "POTS-003",
+						"productImgPath" : "/img/img.jpg",
+						"brand" : "SIVKASHI",
+						"itemName": "Red POTS",
+						"itemPrice": "sds",
+						"itemStock": "sds",
+						"itemActive": "true"
+					},
+					{
+						"productId" : "POTS-004",
+						"productImgPath" : "/img/img.jpg",
+						"brand" : "SIVKASHI",
+						"itemName": "Red POTS",
+						"itemPrice": "sds",
+						"itemStock": "sds",
+						"itemActive": "true"
+					}
+				]
+			},
+			{ "itemName" : "FOUNTAIN", "itemIMGPath" : "assets/menu-icons/fountain_icon.svg", "itemTypeList": 
+				[
+					{
+						"productId" : "POTS-001",
+						"productImgPath" : "/img/img.jpg",
+						"brand" : "SIVKASHI",
+						"itemName": "Red POTS",
+						"itemPrice": "sds",
+						"itemStock": "sds",
+						"itemActive": "true"
+					},
+					{
+						"productId" : "POTS-002",
+						"productImgPath" : "/img/img.jpg",
+						"brand" : "SIVKASHI",
+						"itemName": "Red POTS",
+						"itemPrice": "sds",
+						"itemStock": "sds",
+						"itemActive": "true"
+					},
+					{
+						"productId" : "POTS-003",
+						"productImgPath" : "/img/img.jpg",
+						"brand" : "SIVKASHI",
+						"itemName": "Red POTS",
+						"itemPrice": "sds",
+						"itemStock": "sds",
+						"itemActive": "true"
+					},
+					{
+						"productId" : "POTS-004",
+						"productImgPath" : "/img/img.jpg",
+						"brand" : "SIVKASHI",
+						"itemName": "Red POTS",
+						"itemPrice": "sds",
+						"itemStock": "sds",
+						"itemActive": "true"
+					}
+				]
+			},
+			{ "itemName" : "CHARKI", "itemIMGPath" : "assets/menu-icons/charki_icon.svg",  "itemTypeList": 
 				[
 					{
 						"productId" : "BOMBS-001",
