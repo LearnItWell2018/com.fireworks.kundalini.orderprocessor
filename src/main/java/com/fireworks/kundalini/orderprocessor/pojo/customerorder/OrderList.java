@@ -19,8 +19,32 @@ public class OrderList {
     private String itemCount;
     @JsonProperty("itemPrice")
     private String itemPrice;
+    @JsonProperty("itemImage")
+    private String itemImage;
+    @JsonProperty("itemDesc")
+    private String itemDesc;
 
-    @JsonProperty("productId")
+    @JsonProperty("itemImage")
+    public String getItemImage() {
+		return itemImage;
+	}
+
+    @JsonProperty("itemImage")
+	public void setItemImage(String itemImage) {
+		this.itemImage = itemImage;
+	}
+
+	@JsonProperty("itemDesc")
+	public String getItemDesc() {
+		return itemDesc;
+	}
+
+	@JsonProperty("itemDesc")
+	public void setItemDesc(String itemDesc) {
+		this.itemDesc = itemDesc;
+	}
+
+	@JsonProperty("productId")
     public String getProductId() {
         return productId;
     }
