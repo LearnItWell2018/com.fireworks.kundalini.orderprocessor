@@ -136,9 +136,55 @@ public class OrderBill {
 		orderItem2.setItemDesc("Shivaji Rao Gaekwad (born 12 December 1950), known by his mononymous stage name Rajinikanth, is an Indian film actor and politician who works primarily in Tamil cinema. ");
 		orderItem2.setItemImage("C:/data/WorkSpace/com.fireworks.kundalini.orderprocessor-master/src/main/resources/img/items/shell_4.jpg");
 		orderItem2.setItemCount("5");
+		
+		OrderList orderItem3 = new OrderList();
 
+		orderItem3.setProductId("Product_ID");
+		orderItem3.setItemPrice("80");
+		orderItem3.setItemDesc("Shivaji Rao Gaekwad (born 12 December 1950), known by his mononymous stage name Rajinikanth, is an Indian film actor and politician who works primarily in Tamil cinema. ");
+		orderItem3.setItemImage("C:/data/WorkSpace/com.fireworks.kundalini.orderprocessor-master/src/main/resources/img/items/shell_2.jpg");
+		orderItem3.setItemCount("5");
+		
+		OrderList orderItem4 = new OrderList();
+
+		orderItem4.setProductId("Product_ID");
+		orderItem4.setItemPrice("80");
+		orderItem4.setItemDesc("Shivaji Rao Gaekwad (born 12 December 1950), known by his mononymous stage name Rajinikanth, is an Indian film actor and politician who works primarily in Tamil cinema. ");
+		orderItem4.setItemImage("C:/data/WorkSpace/com.fireworks.kundalini.orderprocessor-master/src/main/resources/img/items/shell_3.jpg");
+		orderItem4.setItemCount("5");
+
+		OrderList orderItem5 = new OrderList();
+
+		orderItem5.setProductId("Product_ID");
+		orderItem5.setItemPrice("80");
+		orderItem5.setItemDesc("Shivaji Rao Gaekwad (born 12 December 1950), known by his mononymous stage name Rajinikanth, is an Indian film actor and politician who works primarily in Tamil cinema. ");
+		orderItem5.setItemImage("C:/data/WorkSpace/com.fireworks.kundalini.orderprocessor-master/src/main/resources/img/items/shell_1.jpg");
+		orderItem5.setItemCount("5");
+		
+		OrderList orderItem6 = new OrderList();
+
+		orderItem6.setProductId("Product_ID");
+		orderItem6.setItemPrice("80");
+		orderItem6.setItemDesc("Shivaji Rao Gaekwad (born 12 December 1950), known by his mononymous stage name Rajinikanth, is an Indian film actor and politician who works primarily in Tamil cinema. ");
+		orderItem6.setItemImage("C:/data/WorkSpace/com.fireworks.kundalini.orderprocessor-master/src/main/resources/img/items/sparkler_l_1.jpg");
+		orderItem6.setItemCount("5");
+		
+		OrderList orderItem7 = new OrderList();
+
+		orderItem7.setProductId("Product_ID");
+		orderItem7.setItemPrice("80");
+		orderItem7.setItemDesc("Shivaji Rao Gaekwad (born 12 December 1950), known by his mononymous stage name Rajinikanth, is an Indian film actor and politician who works primarily in Tamil cinema. ");
+		orderItem7.setItemImage("C:/data/WorkSpace/com.fireworks.kundalini.orderprocessor-master/src/main/resources/img/items/torch_l_1.jpg");
+		orderItem7.setItemCount("5");
+		
 		orderList.add(orderItem1);
 		orderList.add(orderItem2);
+		orderList.add(orderItem3);
+		orderList.add(orderItem4);
+		orderList.add(orderItem5);
+		orderList.add(orderItem6);
+		orderList.add(orderItem7);
+		
 		orderDetails.setOrderList(orderList);
 		customerOrder.setOrderDetails(orderDetails);
 
