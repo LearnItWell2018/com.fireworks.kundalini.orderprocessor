@@ -23,7 +23,7 @@ public class OrderBill {
 
 	Document document;
 	
-	String rootDir = "F:/Learning/com.fireworks.kundalini.orderprocessor/src/main/resources/img/items/";
+	String rootDir = "C:/data/WorkSpace/com.fireworks.kundalini.orderprocessor-master/src/main/resources/img/items/";
 	
 	public OrderBill(CustomerOrder customerOrder, String filename) {
 		this.document = new Document(PageSize.A4);
@@ -68,10 +68,10 @@ public class OrderBill {
 		return new PdfPCell(new Phrase(content, font));
 	}
 	
-	private PdfPCell provideType2Cell(String content) {
+	private PdfPCell provideType2Cell(String content, BaseColor baseColor) {
 		Font font = FontFactory.getFont(FontFactory.TIMES_ROMAN, 12, Font.BOLD, BaseColor.WHITE);
 		PdfPCell cell = new PdfPCell(new Phrase(content, font));
-		cell.setBackgroundColor(BaseColor.BLUE);
+		cell.setBackgroundColor(baseColor);
 		return cell;
 	}
 	
@@ -86,7 +86,7 @@ public class OrderBill {
 		PdfPTable itemTable;
 		
 		itemTable = new PdfPTable(1);
-		itemTable.addCell(provideType2Cell("Order Details"));
+		itemTable.addCell(provideType2Cell("Order Details", BaseColor.BLUE));
 		this.document.add(itemTable);
 		
 		
@@ -112,12 +112,18 @@ public class OrderBill {
 			itemTable.addCell(provideType1Cell(order.getItemCount()));
 			this.document.add(itemTable);
 		}
+		
+		itemTable = new PdfPTable(2);
+		itemTable.setWidths(new float[] { 7, 2});
+		itemTable.addCell(provideType2Cell("Total Amount in Rupees :", BaseColor.RED));
+		itemTable.addCell(provideType2Cell("2400", BaseColor.BLACK));
+		this.document.add(itemTable);
 
 	}
 
 	public static void main(String[] args) {
 		
-		String rootDir = "F:/Learning/com.fireworks.kundalini.orderprocessor/src/main/resources/img/items/";
+		String rootDir = "C:/data/WorkSpace/com.fireworks.kundalini.orderprocessor-master/src/main/resources/img/items/";
 
 		CustomerOrder customerOrder = new CustomerOrder();
 		
