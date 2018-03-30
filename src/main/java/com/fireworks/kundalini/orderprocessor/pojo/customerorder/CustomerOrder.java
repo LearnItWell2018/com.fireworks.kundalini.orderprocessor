@@ -3,6 +3,8 @@ package com.fireworks.kundalini.orderprocessor.pojo.customerorder;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fireworks.kundalini.orderprocessor.pojo.customer.CustomerAddress;
+
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -21,8 +23,18 @@ public class CustomerOrder {
     private String customerMobile;
     @JsonProperty("orderDetails")
     private OrderDetails orderDetails;
+    @JsonProperty("customerAddress")
+    CustomerAddress customerAddress;
 
-    @JsonProperty("customerMail")
+    public CustomerAddress getCustomerAddress() {
+		return customerAddress;
+	}
+
+	public void setCustomerAddress(CustomerAddress customerAddress) {
+		this.customerAddress = customerAddress;
+	}
+
+	@JsonProperty("customerMail")
     public String getCustomerMail() {
         return customerMail;
     }

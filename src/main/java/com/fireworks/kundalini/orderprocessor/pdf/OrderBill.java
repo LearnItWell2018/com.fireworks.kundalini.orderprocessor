@@ -4,6 +4,7 @@ import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fireworks.kundalini.orderprocessor.pojo.customer.CustomerAddress;
 import com.fireworks.kundalini.orderprocessor.pojo.customerorder.CustomerOrder;
 import com.fireworks.kundalini.orderprocessor.pojo.customerorder.OrderDetails;
 import com.fireworks.kundalini.orderprocessor.pojo.customerorder.OrderList;
@@ -23,7 +24,7 @@ public class OrderBill {
 
 	Document document;
 	
-	String rootDir = "C:/data/WorkSpace/com.fireworks.kundalini.orderprocessor-master/src/main/resources/img/items/";
+	String rootDir = "F:/Learning/com.fireworks.kundalini.orderprocessor/src/main/resources/img/items/";
 	
 	public OrderBill(CustomerOrder customerOrder, String filename) {
 		this.document = new Document(PageSize.A4);
@@ -35,7 +36,11 @@ public class OrderBill {
 
 			PdfPTable table = new PdfPTable(2);
 			table.addCell(createImageCell(rootDir + "kundalini.jpg"));
-			table.addCell(fillCustomerDetails(customerOrder));
+			
+			Paragraph totalDetails = new Paragraph();
+			totalDetails.add(fillCompanyDetails());
+			totalDetails.add(fillCustomerDetails(customerOrder));
+			table.addCell(totalDetails);
 			this.document.add(table);
 			fillItemDetails(customerOrder.getOrderDetails().getOrderList());
 			document.close();
@@ -50,14 +55,61 @@ public class OrderBill {
 		return new PdfPCell(img, true);
 	}
 
+	private Paragraph fillCompanyDetails() {
+		Paragraph companyDetails = new Paragraph();
+		Font font = FontFactory.getFont(FontFactory.HELVETICA_BOLDOBLIQUE, 16, Font.BOLD, BaseColor.RED);
+		Paragraph companyName = new Paragraph("Kundalini Fireworks", font);
+		font = FontFactory.getFont(FontFactory.HELVETICA, 10, Font.BOLD, BaseColor.BLACK);
+		Phrase mail = new Phrase("Mail Us:", font);
+		font = FontFactory.getFont(FontFactory.HELVETICA, 10, Font.ITALIC, BaseColor.BLUE);
+		Phrase mailDetails = new Phrase(" LearnItWell2018@gmail.com", font);
+		Paragraph mailUs = new Paragraph();
+		mailUs.add(mail);
+		mailUs.add(mailDetails);
+		
+		font = FontFactory.getFont(FontFactory.HELVETICA, 10, Font.BOLD, BaseColor.BLACK);
+		Phrase callUs = new Phrase("Call Us:", font);
+		font = FontFactory.getFont(FontFactory.HELVETICA, 10, Font.ITALIC, BaseColor.BLUE);
+		Phrase mobileDetails = new Phrase("+91 9051915545", font);
+		Paragraph callUsDetails = new Paragraph();
+		callUsDetails.add(callUs);
+		callUsDetails.add(mobileDetails);
+		
+		companyDetails.add(companyName);
+		companyDetails.add(mailUs);
+		companyDetails.add(callUsDetails);
+		
+		return companyDetails;
+		
+	}
+	
 	private Paragraph fillCustomerDetails(CustomerOrder customerOrder) {
+		
 		Paragraph customerDetails = new Paragraph();
 		
-		Paragraph customerMail = new Paragraph(customerOrder.getCustomerMail());
-		Paragraph customerMobile = new Paragraph(customerOrder.getCustomerMobile());
+		Font font = FontFactory.getFont(FontFactory.COURIER, 12, Font.BOLDITALIC, BaseColor.BLACK);
+		Paragraph customerCopy = new Paragraph("CUSTOMER COPY", font);
 		
+		font = FontFactory.getFont(FontFactory.COURIER, 10, Font.NORMAL, BaseColor.BLUE);
+		Paragraph customerMail = new Paragraph(customerOrder.getCustomerMail(), font);
+		font = FontFactory.getFont(FontFactory.COURIER, 10, Font.BOLD, BaseColor.BLUE);
+		Paragraph customerMobile = new Paragraph(customerOrder.getCustomerMobile(), font);
+		
+		customerDetails.add(customerCopy);
 		customerDetails.add(customerMail);
 		customerDetails.add(customerMobile);
+		
+		CustomerAddress customerAddress = customerOrder.getCustomerAddress();
+		
+		font = FontFactory.getFont(FontFactory.COURIER, 10, Font.BOLD, BaseColor.DARK_GRAY);
+		Paragraph street = new Paragraph(customerAddress.getStreet(), font);
+		customerDetails.add(street);
+		Paragraph room = new Paragraph(customerAddress.getRoomorflatno(), font);
+		customerDetails.add(room);
+		Paragraph pin = new Paragraph(customerAddress.getPincode(), font);
+		customerDetails.add(pin);
+		Paragraph near = new Paragraph(customerAddress.getNearestLandMark(), font);
+		customerDetails.add(near);
 		
 		return customerDetails;
 		
@@ -85,50 +137,75 @@ public class OrderBill {
 	private void fillItemDetails(List<OrderList> orderList) throws Exception {
 		PdfPTable itemTable;
 		
+		Float total = new Float(0);
+		
 		itemTable = new PdfPTable(1);
 		itemTable.addCell(provideType2Cell("Order Details", BaseColor.BLUE));
 		this.document.add(itemTable);
 		
 		
-		itemTable = new PdfPTable(5);
-		itemTable.setWidths(new float[] { 2, 2, 3, 1, 1});
-		
-		itemTable.addCell(provideHeaderCell("Product Name", BaseColor.ORANGE));
-		itemTable.addCell(provideHeaderCell("Product Image", BaseColor.CYAN));
-		itemTable.addCell(provideHeaderCell("Product Details", BaseColor.PINK));
-		itemTable.addCell(provideHeaderCell("Unit Price", BaseColor.GREEN));
-		itemTable.addCell(provideHeaderCell("Product Count", BaseColor.YELLOW));
+		itemTable = new PdfPTable(6);
+
+        itemTable.setWidths(new float[] { 2, 2, 3, 1, 1, 1});
+
+        itemTable.addCell(provideHeaderCell("Product Name", BaseColor.ORANGE));
+        itemTable.addCell(provideHeaderCell("Product Image", BaseColor.CYAN));
+        itemTable.addCell(provideHeaderCell("Product Details", BaseColor.PINK));
+        itemTable.addCell(provideHeaderCell("Unit Price", BaseColor.GREEN));
+        itemTable.addCell(provideHeaderCell("Product Count", BaseColor.YELLOW));
+        itemTable.addCell(provideHeaderCell("Total", BaseColor.RED));
 
 		this.document.add(itemTable);
 		
 		
 		for (OrderList order : orderList) {
-			itemTable = new PdfPTable(5);
-			itemTable.setWidths(new float[] { 2, 2, 3, 1, 1});
-			itemTable.addCell(provideType1Cell(order.getProductId()));
-			itemTable.addCell(createImageCell(order.getItemImage()));
-			itemTable.addCell(provideType1Cell(order.getItemDesc()));
-			itemTable.addCell(provideType1Cell(order.getItemPrice()));
-			itemTable.addCell(provideType1Cell(order.getItemCount()));
-			this.document.add(itemTable);
-		}
-		
-		itemTable = new PdfPTable(2);
-		itemTable.setWidths(new float[] { 7, 2});
-		itemTable.addCell(provideType2Cell("Total Amount in Rupees :", BaseColor.RED));
-		itemTable.addCell(provideType2Cell("2400", BaseColor.BLACK));
-		this.document.add(itemTable);
+
+            itemTable = new PdfPTable(6);
+
+            itemTable.setWidths(new float[] { 2, 2, 3, 1, 1, 1});
+
+            itemTable.addCell(provideType1Cell(order.getProductId()));
+            itemTable.addCell(createImageCell(order.getItemImage()));
+            itemTable.addCell(provideType1Cell(order.getItemDesc()));
+            itemTable.addCell(provideType1Cell(order.getItemPrice()));
+            itemTable.addCell(provideType1Cell(order.getItemCount()));
+            total = total + Float.parseFloat(order.getItemPrice())*Integer.parseInt(order.getItemCount());
+            itemTable.addCell(provideType1Cell(Float.toString(Float.parseFloat(order.getItemPrice())*Integer.parseInt(order.getItemCount()))));
+
+            this.document.add(itemTable);
+
+     }
+
+    
+
+     itemTable = new PdfPTable(2);
+
+     itemTable.setWidths(new float[] { 8, 2});
+
+     itemTable.addCell(provideType2Cell("Total Amount in Rupees :", BaseColor.RED));
+     itemTable.addCell(provideType2Cell(Float.toString(total), BaseColor.BLACK));
+
+     this.document.add(itemTable);
 
 	}
 
 	public static void main(String[] args) {
 		
-		String rootDir = "C:/data/WorkSpace/com.fireworks.kundalini.orderprocessor-master/src/main/resources/img/items/";
+		String rootDir = "F:/Learning/com.fireworks.kundalini.orderprocessor/src/main/resources/img/items/";
 
 		CustomerOrder customerOrder = new CustomerOrder();
 		
 		customerOrder.setCustomerMail("suparnog13@gmail.com");
 		customerOrder.setCustomerMobile("9051915545");
+		
+		CustomerAddress address = new CustomerAddress();
+		
+		address.setPincode("700091");
+		address.setStreet("BIPL, Omega building, GP Block, Sector V, Salt Lake City, 8th Floor Reception.");
+		address.setNearestLandMark("Near SDF Building");
+		address.setRoomorflatno("82");
+		
+		customerOrder.setCustomerAddress(address);
 		
 		OrderDetails orderDetails = new OrderDetails();
 		List<OrderList> orderList = new ArrayList<>();
