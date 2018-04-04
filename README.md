@@ -360,6 +360,13 @@ http://localhost:8080/kundalini/rs/items/POTS/POTS-001
 }
 ```
 
+**GET:**
+http://localhost:8080/kundalini/rs/items/list
+
+```json
+[{"name":"Red POTS","price":"sds","imagePath":""},{"name":"Red POTS","price":"sds","imagePath":""},{"name":"Red POTS","price":"sds","imagePath":""},{"name":"Red POTS","price":"sds","imagePath":""},{"name":"Red POTS","price":"80","imagePath":"assets/items/shell_1.jpg"},{"name":"Red POTS","price":"80","imagePath":"assets/items/shell_2.jpg"},{"name":"Red POTS","price":"80","imagePath":"assets/items/shell_3.jpg"},{"name":"Red POTS","price":"80","imagePath":"assets/items/shell_4.jpg"},{"name":"Red POTS","price":"80","imagePath":"assets/items/shell_5.jpg"},{"name":"Red POTS","price":"80","imagePath":"assets/items/shell_6.jpg"},{"name":"Red POTS","price":"20","imagePath":"assets/items/torch_l.jpg"},{"name":"Red POTS","price":"30","imagePath":"assets/items/torch_l_1.jpg"},{"name":"Red POTS","price":"sds","imagePath":""},{"name":"Red POTS","price":"sds","imagePath":""},{"name":"Red POTS","price":"sds","imagePath":""},{"name":"Red POTS","price":"sds","imagePath":""},{"name":"Red POTS","price":"sds","imagePath":""},{"name":"Red POTS","price":"sds","imagePath":""},{"name":"Red POTS","price":"sds","imagePath":""},{"name":"Red POTS","price":"sds","imagePath":""},{"name":"Red POTS","price":"25","imagePath":"assets/items/sparkler_l.jpg"},{"name":"Red POTS","price":"20","imagePath":"assets/items/sparkler_l_1.jpg"},{"name":"Red POTS","price":"4","imagePath":"assets/items/sparkler_l_2.jpg"},{"name":"Red POTS","price":"6","imagePath":"assets/items/sparkler_l_3.jpg"},{"name":"Red POTS","price":"200","imagePath":"assets/items/fountain_l.jpg"},{"name":"Red POTS","price":"200","imagePath":"assets/items/fountain_l_1.jpg"},{"name":"Red POTS","price":"200","imagePath":"assets/items/fountain_l_2.jpg"},{"name":"Red BOMBS","price":"sds","imagePath":""},{"name":"Red BOMBS","price":"sds","imagePath":""},{"name":"Red BOMBS","price":"sds","imagePath":""},{"name":"Red BOMBS","price":"sds","imagePath":""}]
+```
+
 **POST:**
 http://localhost:8080/kundalini/rs/customer/
 
@@ -427,7 +434,24 @@ http://localhost:8080/kundalini/rs/order/
 		"itemPrice": "10.00"
       }
     ]
-  }
+  },
+  "customerAddress": 
+	[ 
+		{
+		  "id" : 1,
+		  "pincode": "700121",
+		  "street": "AJC Bose road",
+		  "roomorflatno": "82",
+		  "nearestLandMark": "Jagriti Shangha Club"
+		} ,
+		{
+		  "id" : 2,
+		  "pincode": "700121",
+		  "street": "AJC Bose road",
+		  "roomorflatno": "82",
+		  "nearestLandMark": "Jagriti Shangha Club"
+		}
+	]
 }
 ```
 https://git.itextsupport.com/users/bruno/repos/htmlsamples/browse
