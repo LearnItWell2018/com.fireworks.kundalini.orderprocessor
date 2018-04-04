@@ -13,6 +13,7 @@ import javax.ws.rs.core.MediaType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.fireworks.kundalini.orderprocessor.pojo.itemcategories.ItemsByName;
 import com.fireworks.kundalini.orderprocessor.pojo.items.ItemTypeList;
 import com.fireworks.kundalini.orderprocessor.pojo.items.KundaliniItems;
 import com.fireworks.kundalini.orderprocessor.service.IItemsDetailsService;
@@ -42,6 +43,13 @@ public class ItemController {
 	@Produces(MediaType.APPLICATION_JSON)
 	public ItemTypeList getItem(@PathParam("itemName") String itemName, @PathParam("productID") String productID) {
 		return itemsDetailsService.getProduct(itemName, productID);
+	}
+	
+	@GET
+	@Path("list")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<ItemsByName> getItemsByName() {
+		return itemsDetailsService.getItemsByName();
 	}
 	
 	@POST
