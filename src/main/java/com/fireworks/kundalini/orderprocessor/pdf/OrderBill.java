@@ -99,7 +99,7 @@ public class OrderBill {
 		customerDetails.add(customerMail);
 		customerDetails.add(customerMobile);
 		
-		CustomerAddress customerAddress = customerOrder.getCustomerAddress();
+		CustomerAddress customerAddress = customerOrder.getCustomerAddress().get(0);
 		
 		font = FontFactory.getFont(FontFactory.COURIER, 10, Font.BOLD, BaseColor.DARK_GRAY);
 		Paragraph street = new Paragraph(customerAddress.getStreet(), font);
@@ -205,7 +205,9 @@ public class OrderBill {
 		address.setNearestLandMark("Near SDF Building");
 		address.setRoomorflatno("82");
 		
-		customerOrder.setCustomerAddress(address);
+		ArrayList<CustomerAddress> customerAddress = new ArrayList<>();
+		customerAddress.add(address);
+		customerOrder.setCustomerAddress(customerAddress);
 		
 		OrderDetails orderDetails = new OrderDetails();
 		List<OrderList> orderList = new ArrayList<>();

@@ -4,6 +4,9 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fireworks.kundalini.orderprocessor.pojo.customer.CustomerAddress;
+import com.fireworks.kundalini.orderprocessor.pojo.customerorder.OrderDetails;
+
+import java.util.List;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -13,7 +16,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @JsonPropertyOrder({
     "customerMail",
     "customerMobile",
-    "orderDetails"
+    "orderDetails",
+    "customerAddress"
 })
 public class CustomerOrder {
 
@@ -24,15 +28,17 @@ public class CustomerOrder {
     @JsonProperty("orderDetails")
     private OrderDetails orderDetails;
     @JsonProperty("customerAddress")
-    CustomerAddress customerAddress;
+    private List<CustomerAddress> customerAddress = null;
 
-    public CustomerAddress getCustomerAddress() {
-		return customerAddress;
-	}
+    @JsonProperty("customerAddress")
+    public List<CustomerAddress> getCustomerAddress() {
+        return customerAddress;
+    }
 
-	public void setCustomerAddress(CustomerAddress customerAddress) {
-		this.customerAddress = customerAddress;
-	}
+    @JsonProperty("customerAddress")
+    public void setCustomerAddress(List<CustomerAddress> customerAddress) {
+        this.customerAddress = customerAddress;
+    }
 
 	@JsonProperty("customerMail")
     public String getCustomerMail() {
