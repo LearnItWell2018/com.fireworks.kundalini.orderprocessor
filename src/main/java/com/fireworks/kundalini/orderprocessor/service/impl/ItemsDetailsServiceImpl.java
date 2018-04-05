@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import com.fireworks.kundalini.orderprocessor.db.crud.ItemsRepository;
 import com.fireworks.kundalini.orderprocessor.pojo.itemcategories.Item;
 import com.fireworks.kundalini.orderprocessor.pojo.itemcategories.ItemCategories;
-import com.fireworks.kundalini.orderprocessor.pojo.itemcategories.ItemsByName;
 import com.fireworks.kundalini.orderprocessor.pojo.items.ItemList;
 import com.fireworks.kundalini.orderprocessor.pojo.items.ItemTypeList;
 import com.fireworks.kundalini.orderprocessor.pojo.items.KundaliniItems;
@@ -70,24 +69,13 @@ public class ItemsDetailsServiceImpl implements IItemsDetailsService {
 	}
 
 	@Override
-	public List<ItemsByName> getItemsByName() {
+	public List<ItemTypeList> getItemsByName() {
 		KundaliniItems kundaliniItems = getItems();
-		List<ItemsByName> itemNameList = new ArrayList<>();
+		List<ItemTypeList> itemNameList = new ArrayList<>();
 		for (ItemList itemList : kundaliniItems.getItems().getItemList()) {
-			fillItemByNameFromTypeList(itemList, itemNameList);
+			itemNameList.addAll(itemList.getItemTypeList());
 		}
 		return itemNameList;
-	}
-	
-	private void fillItemByNameFromTypeList(ItemList itemList, List<ItemsByName> itemNameList) {
-		ItemsByName itemsByName;
-		for (ItemTypeList itemTypeList : itemList.getItemTypeList()) {
-			itemsByName = new ItemsByName();
-			itemsByName.setName(itemTypeList.getItemName());
-			itemsByName.setImagePath(itemTypeList.getProductImgPath());
-			itemsByName.setPrice(itemTypeList.getItemPrice());
-			itemNameList.add(itemsByName);
-		}
 	}
 	
 }
