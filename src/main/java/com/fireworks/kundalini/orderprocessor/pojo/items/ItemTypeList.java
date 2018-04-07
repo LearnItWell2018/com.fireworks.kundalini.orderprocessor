@@ -13,6 +13,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "productImgPath",
     "brand",
     "itemName",
+    "itemDesc",
     "itemPrice",
     "itemStock",
     "itemActive"
@@ -27,13 +28,26 @@ public class ItemTypeList {
     private String brand;
     @JsonProperty("itemName")
     private String itemName;
-    @JsonProperty("itemPrice")
+    @JsonProperty("itemDesc")
+    private String itemDesc;
+	@JsonProperty("itemPrice")
     private String itemPrice;
     @JsonProperty("itemStock")
     private String itemStock;
     @JsonProperty("itemActive")
     private String itemActive;
 
+    
+    @JsonProperty("itemDesc")
+    public String getItemDesc() {
+		return itemDesc;
+	}
+
+    @JsonProperty("itemDesc")
+	public void setItemDesc(String itemDesc) {
+		this.itemDesc = itemDesc;
+	}
+    
     @JsonProperty("productId")
     public String getProductId() {
         return productId;
