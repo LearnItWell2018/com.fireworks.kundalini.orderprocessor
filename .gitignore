@@ -6,6 +6,7 @@
 .recommenders
 .idea
 .settings
+.classpath
 .idea
 .idea/
 TO_BE_ARCHIVED
