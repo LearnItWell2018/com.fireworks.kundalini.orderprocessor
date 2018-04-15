@@ -20,21 +20,23 @@ import com.fireworks.kundalini.orderprocessor.service.IOrderDetailsService;
 @Component
 public class OrderController {
 
-	
 	@Autowired
 	IOrderDetailsService orderDetailsService;
-	
+
 	@GET
 	@Path("{customerMailId}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<CustomerOrder> getOfferByID(@PathParam("customerMailId") String customerMailId) {
 		return orderDetailsService.fetchOrderForCustomer(customerMailId);
 	}
-	
+
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public CustomerOrder insertOrder(CustomerOrder order) {
-		return orderDetailsService.saveOrder(order);
+		CustomerOrder CustomerOrderforPdf = orderDetailsService.saveOrder(order);
+		orderDetailsService.generatePdf(CustomerOrderforPdf);
+		orderDetailsService.sendMail(order);
+		return order;
 	}
 }

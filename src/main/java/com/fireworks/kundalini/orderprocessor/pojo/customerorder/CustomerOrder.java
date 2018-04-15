@@ -1,15 +1,14 @@
 package com.fireworks.kundalini.orderprocessor.pojo.customerorder;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fireworks.kundalini.orderprocessor.pojo.customer.CustomerAddress;
-import com.fireworks.kundalini.orderprocessor.pojo.customerorder.OrderDetails;
-
 import java.util.List;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
+import org.codehaus.jackson.annotate.JsonProperty;
+import org.codehaus.jackson.annotate.JsonPropertyOrder;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fireworks.kundalini.orderprocessor.pojo.customer.CustomerAddress;
 
 @Document(collection = "orders")
 @JsonInclude(JsonInclude.Include.NON_NULL)

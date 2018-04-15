@@ -1,12 +1,10 @@
 package com.fireworks.kundalini.orderprocessor.pdf;
 
 import java.io.FileOutputStream;
-import java.util.ArrayList;
 import java.util.List;
 
 import com.fireworks.kundalini.orderprocessor.pojo.customer.CustomerAddress;
 import com.fireworks.kundalini.orderprocessor.pojo.customerorder.CustomerOrder;
-import com.fireworks.kundalini.orderprocessor.pojo.customerorder.OrderDetails;
 import com.fireworks.kundalini.orderprocessor.pojo.customerorder.OrderList;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
@@ -24,18 +22,18 @@ public class OrderBill {
 
 	Document document;
 	
-	String rootDir = "F:/Learning/com.fireworks.kundalini.orderprocessor/src/main/resources/img/items/";
+	String rootDir = "E:/java/workspace/com.fireworks.kundalini.orderprocessor/src/main/resources/img/items/";
 	
-	public OrderBill(CustomerOrder customerOrder, String filename) {
+	public void generatePdf(CustomerOrder customerOrder) {
 		this.document = new Document(PageSize.A4);
-		
+		String filename = null;// extract the pdf Name from customerOrder
 		try {
 			PdfWriter writer = PdfWriter.getInstance(document,
 					new FileOutputStream("c:/data/" + filename + ".pdf"));
 			this.document.open();
 
 			PdfPTable table = new PdfPTable(2);
-			table.addCell(createImageCell(rootDir + "kundalini.jpg"));
+			table.addCell(createImageCell("E:/java/workspace/com.fireworks.kundalini.orderprocessor/src/main/resources/img/items/" + "kundalini.jpg"));
 			
 			Paragraph totalDetails = new Paragraph();
 			totalDetails.add(fillCompanyDetails());
@@ -188,98 +186,4 @@ public class OrderBill {
      this.document.add(itemTable);
 
 	}
-
-	public static void main(String[] args) {
-		
-		String rootDir = "F:/Learning/com.fireworks.kundalini.orderprocessor/src/main/resources/img/items/";
-
-		CustomerOrder customerOrder = new CustomerOrder();
-		
-		customerOrder.setCustomerMail("suparnog13@gmail.com");
-		customerOrder.setCustomerMobile("9051915545");
-		
-		CustomerAddress address = new CustomerAddress();
-		
-		address.setPincode("700091");
-		address.setStreet("BIPL, Omega building, GP Block, Sector V, Salt Lake City, 8th Floor Reception.");
-		address.setNearestLandMark("Near SDF Building");
-		address.setRoomorflatno("82");
-		
-		ArrayList<CustomerAddress> customerAddress = new ArrayList<>();
-		customerAddress.add(address);
-		customerOrder.setCustomerAddress(customerAddress);
-		
-		OrderDetails orderDetails = new OrderDetails();
-		List<OrderList> orderList = new ArrayList<>();
-		OrderList orderItem1 = new OrderList();
-
-		orderItem1.setProductId("Product_ID");
-		orderItem1.setItemPrice("80");
-		orderItem1.setItemDesc("Shivaji Rao Gaekwad (born 12 December 1950), known by his mononymous stage name Rajinikanth, is an Indian film actor and politician who works primarily in Tamil cinema. ");
-		orderItem1.setItemImage(rootDir + "fountain_l_1.jpg");
-		orderItem1.setItemCount("5");
-		
-		OrderList orderItem2 = new OrderList();
-
-		orderItem2.setProductId("Product_ID");
-		orderItem2.setItemPrice("80");
-		orderItem2.setItemDesc("Shivaji Rao Gaekwad (born 12 December 1950), known by his mononymous stage name Rajinikanth, is an Indian film actor and politician who works primarily in Tamil cinema. ");
-		orderItem2.setItemImage(rootDir + "shell_4.jpg");
-		orderItem2.setItemCount("5");
-		
-		OrderList orderItem3 = new OrderList();
-
-		orderItem3.setProductId("Product_ID");
-		orderItem3.setItemPrice("80");
-		orderItem3.setItemDesc("Shivaji Rao Gaekwad (born 12 December 1950), known by his mononymous stage name Rajinikanth, is an Indian film actor and politician who works primarily in Tamil cinema. ");
-		orderItem3.setItemImage(rootDir + "shell_2.jpg");
-		orderItem3.setItemCount("5");
-		
-		OrderList orderItem4 = new OrderList();
-
-		orderItem4.setProductId("Product_ID");
-		orderItem4.setItemPrice("80");
-		orderItem4.setItemDesc("Shivaji Rao Gaekwad (born 12 December 1950), known by his mononymous stage name Rajinikanth, is an Indian film actor and politician who works primarily in Tamil cinema. ");
-		orderItem4.setItemImage(rootDir + "shell_3.jpg");
-		orderItem4.setItemCount("5");
-
-		OrderList orderItem5 = new OrderList();
-
-		orderItem5.setProductId("Product_ID");
-		orderItem5.setItemPrice("80");
-		orderItem5.setItemDesc("Shivaji Rao Gaekwad (born 12 December 1950), known by his mononymous stage name Rajinikanth, is an Indian film actor and politician who works primarily in Tamil cinema. ");
-		orderItem5.setItemImage(rootDir + "shell_1.jpg");
-		orderItem5.setItemCount("5");
-		
-		OrderList orderItem6 = new OrderList();
-
-		orderItem6.setProductId("Product_ID");
-		orderItem6.setItemPrice("80");
-		orderItem6.setItemDesc("Shivaji Rao Gaekwad (born 12 December 1950), known by his mononymous stage name Rajinikanth, is an Indian film actor and politician who works primarily in Tamil cinema. ");
-		orderItem6.setItemImage(rootDir + "sparkler_l_1.jpg");
-		orderItem6.setItemCount("5");
-		
-		OrderList orderItem7 = new OrderList();
-
-		orderItem7.setProductId("Product_ID");
-		orderItem7.setItemPrice("80");
-		orderItem7.setItemDesc("Shivaji Rao Gaekwad (born 12 December 1950), known by his mononymous stage name Rajinikanth, is an Indian film actor and politician who works primarily in Tamil cinema. ");
-		orderItem7.setItemImage(rootDir + "torch_l_1.jpg");
-		orderItem7.setItemCount("5");
-		
-		orderList.add(orderItem1);
-		orderList.add(orderItem2);
-		orderList.add(orderItem3);
-		orderList.add(orderItem4);
-		orderList.add(orderItem5);
-		orderList.add(orderItem6);
-		orderList.add(orderItem7);
-		
-		orderDetails.setOrderList(orderList);
-		customerOrder.setOrderDetails(orderDetails);
-
-		new OrderBill(customerOrder, "Order_ID");
-
-	}
-
 }
