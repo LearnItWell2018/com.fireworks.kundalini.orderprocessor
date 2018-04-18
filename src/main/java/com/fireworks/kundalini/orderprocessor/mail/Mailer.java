@@ -51,4 +51,7 @@ public class Mailer {
 	private String prepareSubject(CustomerOrder customerOrder) {
 		return "Subject";
 	}
+
+
+	
 }

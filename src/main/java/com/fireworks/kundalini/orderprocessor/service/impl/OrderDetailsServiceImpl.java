@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.fireworks.kundalini.orderprocessor.db.crud.CustomerOrderRepository;
+import com.fireworks.kundalini.orderprocessor.mail.Mailer;
 import com.fireworks.kundalini.orderprocessor.pdf.OrderBill;
 import com.fireworks.kundalini.orderprocessor.pojo.customerorder.CustomerOrder;
 import com.fireworks.kundalini.orderprocessor.service.IOrderDetailsService;
@@ -19,7 +20,10 @@ public class OrderDetailsServiceImpl implements IOrderDetailsService {
 	
 	@Autowired
 	OrderBill orderbill;
-
+	
+	@Autowired
+	Mailer mailer;
+	
 	@Override
 	public CustomerOrder saveOrder(CustomerOrder order) {
 		customerOrderRepository.save(order);
@@ -39,7 +43,7 @@ public class OrderDetailsServiceImpl implements IOrderDetailsService {
 	@Override
 	public void sendMail(CustomerOrder order) {
 		
-		
+		 mailer.send(order);
 	}
 
 	
