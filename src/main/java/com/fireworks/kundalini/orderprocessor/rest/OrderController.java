@@ -34,8 +34,7 @@ public class OrderController {
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public CustomerOrder insertOrder(CustomerOrder order) {
-		CustomerOrder CustomerOrderforPdf = orderDetailsService.saveOrder(order);
-		orderDetailsService.generatePdf(CustomerOrderforPdf);
+		orderDetailsService.generatePdf(orderDetailsService.saveOrder(order));
 		orderDetailsService.sendMail(order);
 		return order;
 	}
