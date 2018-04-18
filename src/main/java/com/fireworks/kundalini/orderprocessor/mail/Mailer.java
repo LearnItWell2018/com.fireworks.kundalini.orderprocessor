@@ -1,21 +1,18 @@
 package com.fireworks.kundalini.orderprocessor.mail;
 
-import java.net.PasswordAuthentication;
-import java.util.List;
 import java.util.Properties;
 
 import javax.mail.Message;
 import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-import org.springframework.batch.item.ItemWriter;
-import org.springframework.boot.autoconfigure.web.ServerProperties.Session;
-
 import com.fireworks.kundalini.orderprocessor.pojo.customerorder.CustomerOrder;
 
-public class Mailer implements ItemWriter<CustomerOrder> {
+public class Mailer {
 
 	public void send(CustomerOrder customerOrder) {
 		// Get properties object
@@ -46,11 +43,6 @@ public class Mailer implements ItemWriter<CustomerOrder> {
 
 	}
 
-	@Override
-	public void write(List<? extends CustomerOrder> arg0) throws Exception {
-		CustomerOrder customerOrder = arg0.get(0);
-		this.send(customerOrder);
-	}
 
 	private String composeMessage(CustomerOrder customerOrder) {
 		return "Mail Message";
