@@ -16,6 +16,9 @@ public class OrderDetailsServiceImpl implements IOrderDetailsService {
 	
 	@Autowired
 	CustomerOrderRepository customerOrderRepository;
+	
+	@Autowired
+	OrderBill orderbill;
 
 	@Override
 	public CustomerOrder saveOrder(CustomerOrder order) {
@@ -28,8 +31,9 @@ public class OrderDetailsServiceImpl implements IOrderDetailsService {
 		return customerOrderRepository.findBycustomerMail(customerMail);
 	}
 	
+	@Override
 	public void generatePdf(CustomerOrder input) {
-		 OrderBill.generatePdf (input);
+		orderbill.generatePdf(input);
 	}
 
 	@Override
