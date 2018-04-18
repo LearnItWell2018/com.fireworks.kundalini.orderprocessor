@@ -9,6 +9,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.data.mongodb.config.AbstractMongoConfiguration;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
+import com.fireworks.kundalini.orderprocessor.pdf.OrderBill;
 import com.mongodb.Mongo;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
@@ -27,6 +28,11 @@ public class ServiceConfiguration extends AbstractMongoConfiguration {
 		return env.getProperty("mongo.db");
 	}
 
+	@Bean("orderbill")
+	public OrderBill getOrderBill () {
+		return new OrderBill(); 
+	}
+	
 	@Override
 	public Mongo mongo() throws Exception {
 		MongoClientURI uri = new MongoClientURI(env.getProperty("mongo.uri"));
