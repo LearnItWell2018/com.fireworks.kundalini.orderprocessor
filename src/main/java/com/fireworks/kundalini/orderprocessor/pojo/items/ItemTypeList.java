@@ -16,7 +16,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "itemDesc",
     "itemPrice",
     "itemStock",
-    "itemActive"
+    "itemActive",
+    "offer"
 })
 public class ItemTypeList {
 
@@ -36,9 +37,20 @@ public class ItemTypeList {
     private String itemStock;
     @JsonProperty("itemActive")
     private String itemActive;
-
+    @JsonProperty("offer")
+    private String offer;
     
-    @JsonProperty("itemDesc")
+    @JsonProperty("offer")
+    public String getOffer() {
+		return offer;
+	}
+
+    @JsonProperty("offer")
+	public void setOffer(String offer) {
+		this.offer = offer;
+	}
+
+	@JsonProperty("itemDesc")
     public String getItemDesc() {
 		return itemDesc;
 	}

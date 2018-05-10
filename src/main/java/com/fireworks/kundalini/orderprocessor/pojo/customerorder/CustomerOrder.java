@@ -16,7 +16,8 @@ import com.fireworks.kundalini.orderprocessor.pojo.customer.CustomerAddress;
     "customerMail",
     "customerMobile",
     "orderDetails",
-    "customerAddress"
+    "customerAddress",
+    "orderStatus"
 })
 public class CustomerOrder {
 
@@ -24,7 +25,9 @@ public class CustomerOrder {
     private String customerMail;
     @JsonProperty("customerMobile")
     private String customerMobile;
-    @JsonProperty("orderDetails")
+    @JsonProperty("orderStatus")
+    private String orderStatus;
+	@JsonProperty("orderDetails")
     private OrderDetails orderDetails;
     @JsonProperty("customerAddress")
     private List<CustomerAddress> customerAddress = null;
@@ -68,10 +71,21 @@ public class CustomerOrder {
     public void setOrderDetails(OrderDetails orderDetails) {
         this.orderDetails = orderDetails;
     }
+    
+    @JsonProperty("orderStatus")
+    public String getOrderStatus() {
+ 		return orderStatus;
+ 	}
+
+    @JsonProperty("orderStatus")
+ 	public void setOrderStatus(String orderStatus) {
+ 		this.orderStatus = orderStatus;
+ 	}
+
 
     @Override
     public String toString() {
-        return new ToStringBuilder(this).append("customerMail", customerMail).append("customerMobile", customerMobile).append("orderDetails", orderDetails).toString();
+        return new ToStringBuilder(this).append("customerMail", customerMail).append("customerMobile", customerMobile).append("orderDetails", orderDetails).append("orderStatus", orderStatus).toString();
     }
 
 }
