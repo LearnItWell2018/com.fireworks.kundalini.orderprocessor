@@ -375,6 +375,7 @@ http://localhost:8080/kundalini/rs/customer/
 {
   "customerMail": "suparnog13@gmail.com",
   "customerMobile": "9163848888",
+  "orderStatus" : "TRIGGER_MAIL",
   "customerDetails": 
   {
 	"customerDOB" : "13/12/1988",
