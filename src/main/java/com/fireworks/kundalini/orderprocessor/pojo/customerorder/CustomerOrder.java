@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.codehaus.jackson.annotate.JsonProperty;
 import org.codehaus.jackson.annotate.JsonPropertyOrder;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,7 +22,22 @@ import com.fireworks.kundalini.orderprocessor.pojo.customer.CustomerAddress;
 })
 public class CustomerOrder {
 
-    @JsonProperty("customerMail")
+    @Id
+    @JsonProperty
+    private String id;
+    
+    @JsonProperty
+    public String getId() {
+		return id;
+	}
+
+    @JsonProperty
+	public void setId(String id) {
+		this.id = id;
+	}
+
+
+	@JsonProperty("customerMail")
     private String customerMail;
     @JsonProperty("customerMobile")
     private String customerMobile;
