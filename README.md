@@ -457,3 +457,23 @@ http://localhost:8080/kundalini/rs/order/
 }
 ```
 https://git.itextsupport.com/users/bruno/repos/htmlsamples/browse
+
+**POST:**
+http://localhost:8080/kundalini/rs/offer/
+
+```json
+{
+  "offerID": "OFFER_IND_01",
+  "offerCreator": "Suparna Ghosh",
+  "offerStartTime" : "13/12/1988",
+  "offerEndTime" : "13/12/1988",
+  "offerDetails": 
+  {
+	"description" : "Hurray it is Independence Day",
+	"percentageApplicable" : "50",
+	"initialPreBookPercentage" : "5",
+	"preBookPercentageApplicable" : "10",
+	"strategy" : "50-30-5"
+  }
+}
+```
