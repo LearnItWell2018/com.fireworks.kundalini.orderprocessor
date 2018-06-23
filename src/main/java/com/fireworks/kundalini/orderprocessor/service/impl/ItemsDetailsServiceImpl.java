@@ -7,11 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.fireworks.kundalini.orderprocessor.db.crud.ItemsRepository;
+import com.fireworks.kundalini.orderprocessor.db.crud.OffersRepository;
 import com.fireworks.kundalini.orderprocessor.pojo.itemcategories.Item;
 import com.fireworks.kundalini.orderprocessor.pojo.itemcategories.ItemCategories;
 import com.fireworks.kundalini.orderprocessor.pojo.items.ItemList;
 import com.fireworks.kundalini.orderprocessor.pojo.items.ItemTypeList;
 import com.fireworks.kundalini.orderprocessor.pojo.items.KundaliniItems;
+import com.fireworks.kundalini.orderprocessor.pojo.offer.Offers;
 import com.fireworks.kundalini.orderprocessor.service.IItemsDetailsService;
 
 @Service
@@ -19,6 +21,9 @@ public class ItemsDetailsServiceImpl implements IItemsDetailsService {
 	
 	@Autowired
 	ItemsRepository itemsRepository;
+	
+	@Autowired
+	OffersRepository offersRepository;
 	
 	@Override
 	public KundaliniItems getItems() {
@@ -76,6 +81,11 @@ public class ItemsDetailsServiceImpl implements IItemsDetailsService {
 			itemNameList.addAll(itemList.getItemTypeList());
 		}
 		return itemNameList;
+	}
+
+	@Override
+	public List<Offers> getOffers() {
+		return offersRepository.findAll();
 	}
 	
 }

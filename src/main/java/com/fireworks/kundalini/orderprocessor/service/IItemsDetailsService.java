@@ -5,6 +5,7 @@ import java.util.List;
 import com.fireworks.kundalini.orderprocessor.pojo.itemcategories.ItemCategories;
 import com.fireworks.kundalini.orderprocessor.pojo.items.ItemTypeList;
 import com.fireworks.kundalini.orderprocessor.pojo.items.KundaliniItems;
+import com.fireworks.kundalini.orderprocessor.pojo.offer.Offers;
 
 public interface IItemsDetailsService {
 
@@ -14,4 +15,5 @@ public interface IItemsDetailsService {
 	public ItemTypeList getProduct(String itemName,String productId);
 	public ItemCategories getItemCategories();
 	public List<ItemTypeList> getItemsByName();
+	public List<Offers> getOffers();
 }
