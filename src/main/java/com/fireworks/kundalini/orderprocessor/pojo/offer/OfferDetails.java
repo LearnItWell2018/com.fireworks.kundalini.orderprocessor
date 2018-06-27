@@ -4,6 +4,9 @@ package com.fireworks.kundalini.orderprocessor.pojo.offer;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+import java.util.ArrayList;
+
 import org.apache.commons.lang.builder.ToStringBuilder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -12,7 +15,8 @@ import org.apache.commons.lang.builder.ToStringBuilder;
     "percentageApplicable",
     "initialPreBookPercentage",
     "preBookPercentageApplicable",
-    "strategy"
+    "strategy",
+    "deliveryDates"
 })
 public class OfferDetails {
 
@@ -26,8 +30,20 @@ public class OfferDetails {
     private String preBookPercentageApplicable;
     @JsonProperty("strategy")
     private String strategy;
+    @JsonProperty("deliveryDates")
+    private ArrayList<String> deliveryDates;
 
-    @JsonProperty("description")
+    @JsonProperty("deliveryDates")
+    public ArrayList<String> getDeliveryDates() {
+		return deliveryDates;
+	}
+
+    @JsonProperty("deliveryDates")
+	public void setDeliveryDates(ArrayList<String> deliveryDates) {
+		this.deliveryDates = deliveryDates;
+	}
+
+	@JsonProperty("description")
     public String getDescription() {
         return description;
     }
