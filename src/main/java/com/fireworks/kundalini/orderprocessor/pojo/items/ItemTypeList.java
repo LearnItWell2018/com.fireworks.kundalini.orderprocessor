@@ -1,6 +1,8 @@
 
 package com.fireworks.kundalini.orderprocessor.pojo.items;
 
+import java.util.List;
+
 import org.apache.commons.lang.builder.ToStringBuilder;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -17,7 +19,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "itemPrice",
     "itemStock",
     "itemActive",
-    "offer"
+    "offer",
+    "similarProduct"
 })
 public class ItemTypeList {
 
@@ -39,8 +42,20 @@ public class ItemTypeList {
     private String itemActive;
     @JsonProperty("offer")
     private String offer;
+    @JsonProperty("similarProduct")
+    private List<String> similarProduct = null;
     
-    @JsonProperty("offer")
+    @JsonProperty("similarProduct")
+    public List<String> getSimilarProduct() {
+		return similarProduct;
+	}
+
+    @JsonProperty("similarProduct")
+	public void setSimilarProduct(List<String> similarProduct) {
+		this.similarProduct = similarProduct;
+	}
+
+	@JsonProperty("offer")
     public String getOffer() {
 		return offer;
 	}
