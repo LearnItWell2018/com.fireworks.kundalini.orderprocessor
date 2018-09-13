@@ -477,3 +477,54 @@ http://localhost:8080/kundalini/rs/offer/
   }
 }
 ```
+
+**POST:**
+http://localhost:8080/kundalini/rs/comments/
+
+```json
+{
+  "customerMail": "suparnog13@gmail.com",
+  "customerMobile": "9163848888",
+  "customerName": "Suparna",
+  "comment": {
+    "date": "13/12/1988",
+    "text": "all comments are hear"
+  },
+  "tag": [
+    "silpa",
+    "naru",
+    "bulti"
+  ],
+  "replies": [
+    {
+      "customerMail": "suparnog13@gmail.com",
+      "customerMobile": "9163848888",
+      "customerName": "Suparna",
+      "reply": {
+        "date": "13/12/1988",
+        "text": "all comments are hear"
+      },
+      "tag": [
+        "silpa",
+        "naru",
+        "bulti"
+      ]
+    },
+    {
+      "customerMail": "sup3@gmail.com",
+      "customerMobile": "9163848888",
+      "customerName": "Suparna",
+      "reply": {
+        "date": "13/12/1988",
+        "text": "all comments are hear"
+      },
+      "tag": [
+        "silpa",
+        "naru",
+        "bulti"
+      ]
+    }
+  ]
+}
+
+```
