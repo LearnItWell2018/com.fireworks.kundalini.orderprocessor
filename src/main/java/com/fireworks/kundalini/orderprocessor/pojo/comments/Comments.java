@@ -2,10 +2,14 @@
 package com.fireworks.kundalini.orderprocessor.pojo.comments;
 
 import java.util.List;
+
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
+@Document(collection = "comments")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
     "customerMail",
@@ -15,7 +19,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "tag",
     "replies"
 })
-public class Example {
+public class Comments {
 
     @JsonProperty("customerMail")
     private String customerMail;
