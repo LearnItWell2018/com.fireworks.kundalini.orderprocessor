@@ -18,7 +18,8 @@ import com.fireworks.kundalini.orderprocessor.pojo.customer.CustomerAddress;
     "customerMobile",
     "orderDetails",
     "customerAddress",
-    "orderStatus"
+    "orderStatus",
+    "referID"
 })
 public class CustomerOrder {
 
@@ -36,6 +37,18 @@ public class CustomerOrder {
 		this.id = id;
 	}
 
+    @JsonProperty("referID")
+    private String referID;
+    
+    @JsonProperty("referID")
+	public String getReferID() {
+		return referID;
+	}
+
+    @JsonProperty("referID")
+	public void setReferID(String referID) {
+		this.referID = referID;
+	}
 
 	@JsonProperty("customerMail")
     private String customerMail;

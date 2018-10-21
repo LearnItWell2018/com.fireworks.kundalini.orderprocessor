@@ -15,7 +15,8 @@ import com.fasterxml.jackson.annotation.JsonInclude;
     "customerReferMail",
     "customerReferMobile",
     "orderID",
-    "orderStatus"
+    "orderStatus",
+    "price"
 })
 public class ReferOrder {
 
@@ -41,7 +42,20 @@ public class ReferOrder {
     @JsonProperty("orderID")
     private String orderID;
     
-    @JsonProperty
+    @JsonProperty("price")
+    private String price;
+    
+    @JsonProperty("price")
+    public String getPrice() {
+		return price;
+	}
+
+    @JsonProperty("price")
+	public void setPrice(String price) {
+		this.price = price;
+	}
+
+	@JsonProperty
     public String getId() {
 		return id;
 	}
